@@ -46,8 +46,8 @@ class NFAnimator : public emp::web::Animate {
                 for (int j = -1; j <= 1; j++) {
                     if (i == 0 && j == 0) continue; // Skip the center cell
                     // Use modulus to wrap around the grid
-                    int neighborX = (x + gridSize + i) % gridSize;
-                    int neighborY = (y + gridSize + j) % gridSize;
+                    int neighborX = emp::Mod((x + i), gridSize);
+                    int neighborY = emp::Mod((y + j), gridSize);
                     canvas.Rect(neighborX*cellSize, neighborY*cellSize, cellSize, cellSize, "red", "black");
                 }
             }
